@@ -4,10 +4,12 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "format": "prettier -uw .",
+    "format": "prettier -uw --cache .",
+    "format:check": "prettier -uc --cache .",
     "lint": "turbo lint --continue -- --max-warnings 0 --cache --cache-location node_modules/.cache/.eslintcache",
     "lint:fix": "turbo lint --continue -- --fix --cache --cache-location node_modules/.cache/.eslintcache",
     "prepare": "husky",
+    "storybook": "turbo storybook",
     "typecheck": "turbo typecheck"
   },
   "config": {
@@ -17,10 +19,10 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.2.2",
-    "@types/node": "^20.14.12",
+    "@types/node": "^20.14.13",
     "commitlint": "^19.3.0",
     "cz-git": "^1.9.4",
-    "husky": "^9.1.1",
+    "husky": "^9.1.4",
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.3",
     "prettier-plugin-packagejson": "^2.5.1",

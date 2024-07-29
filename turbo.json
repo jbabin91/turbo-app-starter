@@ -17,6 +17,9 @@
       "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"],
       "outputs": ["node_modules/.cache/.eslintcache"]
     },
+    "storybook": {
+      "dependsOn": ["^storybook"]
+    },
     "typecheck": {
       "dependsOn": ["^typecheck"],
       "outputs": ["node_modules/.cache/*.tsbuildinfo"]
