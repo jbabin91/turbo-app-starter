@@ -51,7 +51,8 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        Chevron: () => <Icons.ChevronRight className="size-4" />,
+        IconLeft: () => <Icons.ChevronLeft className="size-4" />,
+        IconRight: () => <Icons.ChevronRight className="size-4" />,
       }}
       showOutsideDays={showOutsideDays}
       {...props}
