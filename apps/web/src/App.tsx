@@ -4,17 +4,18 @@ import { useEffect, useState } from 'react';
 import viteLogo from '/vite.svg';
 import reactLogo from '@/assets/react.svg';
 
+import { apiClient, handleResponse } from './libs/api-client';
+
 function App() {
   const [count, setCount] = useState(0);
   const [example, setExample] = useState('');
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('http://localhost:3000/example').then(
-        (res) => res.json(),
-      );
+      const response = await apiClient.example.$get();
+      const json = (await handleResponse(response)) as { message: string };
 
-      setExample(response.message);
+      setExample(json.message);
     }
 
     fetchData();

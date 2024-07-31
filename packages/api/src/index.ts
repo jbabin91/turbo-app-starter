@@ -9,3 +9,6 @@ const routes = app.route('/example', exampleRoutes);
 export type AppTypes = typeof routes;
 
 export default routes;
+
+// Types
+export * from './types';
