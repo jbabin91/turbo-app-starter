@@ -1,8 +1,11 @@
-import { Hono } from 'hono';
+import { OpenAPIHono } from '@hono/zod-openapi';
 
+import { docs } from './libs/docs';
 import exampleRoutes from './modules/example';
 
-const app = new Hono();
+const app = new OpenAPIHono();
+
+docs(app);
 
 const routes = app.route('/example', exampleRoutes);
 
