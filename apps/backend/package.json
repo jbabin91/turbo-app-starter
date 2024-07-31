@@ -1,6 +1,7 @@
 {
   "name": "backend",
   "scripts": {
+    "clean": "rm -rf .turbo node_modules",
     "dev": "tsx watch src/index.ts",
     "lint": "eslint .",
     "preview": "NODE_ENV=production tsx watch src/index.ts",
