@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "@repo/typescript-config/base.json",
+    "@repo/typescript-config/build.json"
+  ],
+  "include": ["src"]
+}

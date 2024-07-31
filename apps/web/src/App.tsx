@@ -1,11 +1,24 @@
 import { Button } from '@repo/ui';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import viteLogo from '/vite.svg';
 import reactLogo from '@/assets/react.svg';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [example, setExample] = useState('');
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('http://localhost:3000/example').then(
+        (res) => res.json(),
+      );
+
+      setExample(response.message);
+    }
+
+    fetchData();
+  });
 
   return (
     <>
@@ -29,6 +42,7 @@ function App() {
       <p className="text-[#888]">
         Click on the Vite and React logos to learn more
       </p>
+      <p>Example Message: {example}</p>
     </>
   );
 }
