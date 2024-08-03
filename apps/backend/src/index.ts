@@ -26,7 +26,6 @@ app.get('/', (c) => {
 
 app.route('/', routes);
 
-console.log(`Server is running on http://localhost:${PORT}`);
 console.log(`OpenAPI Specs are running on http://localhost:${PORT}/docs`);
 
 export default {
