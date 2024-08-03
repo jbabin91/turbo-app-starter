@@ -1,8 +1,9 @@
-import { serve } from '@hono/node-server';
 import routes from '@repo/api';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { csrf } from 'hono/csrf';
+
+const PORT = process.env.PORT ?? 3000;
 
 const app = new Hono();
 
@@ -25,12 +26,10 @@ app.get('/', (c) => {
 
 app.route('/', routes);
 
-serve(
-  {
-    fetch: app.fetch,
-    port: 3000,
-  },
-  (info) => {
-    console.log(`Server is running on http://${info.address}:${info.port}`);
-  },
-);
+console.log(`Server is running on http://localhost:${PORT}`);
+console.log(`OpenAPI Specs are running on http://localhost:${PORT}/docs`);
+
+export default {
+  fetch: app.fetch,
+  port: PORT,
+};

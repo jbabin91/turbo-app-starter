@@ -1,20 +1,23 @@
 {
   "name": "backend",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "clean": "rm -rf .turbo node_modules",
-    "dev": "tsx watch src/index.ts",
+    "build": "bun build --minify src/index.ts --outdir dist",
+    "clean": "rm -rf .turbo dist node_modules",
+    "dev": "bun run --hot src/index.ts",
     "lint": "eslint .",
-    "preview": "NODE_ENV=production tsx watch src/index.ts",
+    "preview": "NODE_ENV=production bun run dist/index.js",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hono/node-server": "^1.12.0",
     "@repo/api": "workspace:*",
     "hono": "^4.5.3"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "tsx": "^4.16.5"
+    "@types/bun": "latest"
   }
 }

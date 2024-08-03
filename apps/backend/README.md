@@ -1,8 +1,13 @@
-```sh
-npm install
-npm run dev
-```
+To install dependencies:
 
 ```sh
-open http://localhost:3000
+bun install
 ```
+
+To run:
+
+```sh
+bun run dev
+```
+
+open http://localhost:3000

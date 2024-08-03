@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalPassThroughEnv": ["NODE_ENV", "DATABASE_URL", "PROD"],
+  "globalPassThroughEnv": ["NODE_ENV", "DATABASE_URL", "PROD", "PORT"],
   "ui": "tui",
   "tasks": {
     "build": {
@@ -19,6 +19,11 @@
       "dependsOn": ["^lint"],
       "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"],
       "outputs": ["node_modules/.cache/.eslintcache"]
+    },
+    "preview": {
+      "dependsOn": ["^preview", "build"],
+      "cache": false,
+      "persistent": true
     },
     "storybook": {
       "dependsOn": ["^storybook"]
