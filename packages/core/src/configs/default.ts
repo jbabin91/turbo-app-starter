@@ -5,6 +5,9 @@ export const config = {
 
   debug: false,
   maintenance: false,
+
+  backendUrl: 'http://localhost:3000',
+  frontendUrl: 'http://localhost:5173',
 };
 
 export default config;
