@@ -1,5 +1,8 @@
 import { type OpenAPIHono } from '@hono/zod-openapi';
+import { config } from '@repo/core';
 import { apiReference } from '@scalar/hono-api-reference';
+
+const isProduction = config.mode === 'production';
 
 const openAPITags = [
   {
@@ -27,7 +30,7 @@ export const docs = (app: OpenAPIHono) => {
     },
     openapi: '3.1.0',
     security: [{ cookieAuth: [] }],
-    servers: undefined,
+    servers: isProduction ? [{ url: config.backendUrl }] : undefined,
     tags: openAPITags,
   });
 

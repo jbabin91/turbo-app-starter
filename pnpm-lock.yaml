@@ -148,6 +148,9 @@ importers:
       '@hono/zod-openapi':
         specifier: ^0.15.1
         version: 0.15.1(hono@4.5.3)(zod@3.23.8)
+      '@repo/core':
+        specifier: workspace:*
+        version: link:../core
       '@scalar/hono-api-reference':
         specifier: 0.5.109
         version: 0.5.109(postcss@8.4.40)(storybook@8.2.7(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(tailwindcss@3.4.7(ts-node@10.9.2(@types/node@22.1.0)(typescript@5.5.4)))(typescript@5.5.4)
