@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "bun build --minify src/index.ts --outdir dist",
+    "build": "NODE_ENV=production bun build --minify src/index.ts --outdir dist",
     "clean": "rm -rf .turbo dist node_modules",
-    "dev": "bun run --hot src/index.ts",
+    "dev": "NODE_ENV=development bun run --hot src/index.ts",
     "lint": "eslint .",
     "preview": "NODE_ENV=production bun run dist/index.js",
     "start": "bun run dist/index.js",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@repo/api": "workspace:*",
+    "@repo/core": "workspace:*",
     "@t3-oss/env-core": "^0.11.0",
     "hono": "^4.5.3",
     "zod": "^3.23.8"
