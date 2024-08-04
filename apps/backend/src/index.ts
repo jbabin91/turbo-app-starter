@@ -1,4 +1,5 @@
 import routes from '@repo/api';
+import { config } from '@repo/core';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { csrf } from 'hono/csrf';
@@ -12,13 +13,13 @@ const app = new Hono();
 app.use(
   cors({
     credentials: true,
-    origin: [env.FRONTEND_URL, env.BACKEND_URL],
+    origin: [config.frontendUrl, config.backendUrl],
   }),
 );
 
 app.use(
   csrf({
-    origin: [env.FRONTEND_URL, env.BACKEND_URL],
+    origin: [config.frontendUrl, config.backendUrl],
   }),
 );
 
