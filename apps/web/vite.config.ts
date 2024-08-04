@@ -1,3 +1,4 @@
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -18,7 +19,15 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react(), tsconfigPaths()],
+  plugins: [
+    react(),
+    TanStackRouterVite({
+      experimental: {
+        enableCodeSplitting: true,
+      },
+    }),
+    tsconfigPaths(),
+  ],
   preview: {
     port: 5173,
   },

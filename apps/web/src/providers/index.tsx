@@ -1,10 +1,16 @@
-import { TailwindIndicator, ThemeProvider } from '@repo/ui';
+import { TailwindIndicator, ThemeProvider, Toaster } from '@repo/ui';
 
-export function Providers({ children }: { children: React.ReactNode }) {
+import { TanstackQueryProvider } from './TanstackQueryProvider';
+import { TanstackRouterProvider } from './TanstackRouterProvider';
+
+export function Providers() {
   return (
     <ThemeProvider>
-      {children}
-      <TailwindIndicator />
+      <TanstackQueryProvider>
+        <TanstackRouterProvider />
+        <Toaster closeButton richColors />
+        <TailwindIndicator />
+      </TanstackQueryProvider>
     </ThemeProvider>
   );
 }
