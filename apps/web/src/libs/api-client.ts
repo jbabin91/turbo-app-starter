@@ -1,6 +1,8 @@
 import { type AppTypes, type ErrorType } from '@repo/api';
 import { type ClientResponse, hc } from 'hono/client';
 
+import { env } from '@/configs';
+
 export class ApiError extends Error {
   status: string | number;
   type?: string;
@@ -48,4 +50,4 @@ const clientConfig = {
     }),
 };
 
-export const apiClient = hc<AppTypes>('http://localhost:3000', clientConfig);
+export const apiClient = hc<AppTypes>(env.VITE_API_URL, clientConfig);

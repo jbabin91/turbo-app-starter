@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalPassThroughEnv": ["NODE_ENV", "DATABASE_URL", "PROD", "PORT"],
+  "globalPassThroughEnv": ["NODE_ENV", "DATABASE_URL", "PROD"],
   "ui": "tui",
   "tasks": {
     "build": {
