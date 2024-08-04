@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "build:backend": "turbo --filter backend build",
+    "build:web": "turbo --filter web build",
     "clean": "turbo clean",
     "dev": "turbo dev",
     "format": "prettier -uw --cache .",
