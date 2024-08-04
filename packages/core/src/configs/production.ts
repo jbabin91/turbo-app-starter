@@ -5,6 +5,6 @@ export default {
 
   maintenance: false,
 
-  backendUrl: 'http://app.jacebabin.com/api',
-  frontendUrl: 'http://app.jacebabin.com',
+  backendUrl: 'https://app.jacebabin.com/api',
+  frontendUrl: 'https://app.jacebabin.com',
 } satisfies Config;
