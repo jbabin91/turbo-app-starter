@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import viteLogo from '/vite.svg';
 import reactLogo from '@/assets/react.svg';
 
+import { APP_NAME } from './configs';
 import { apiClient, handleResponse } from './libs/api-client';
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
           <img alt="React logo" className="logo react" src={reactLogo} />
         </a>
       </div>
-      <h1 className="text-5xl font-semibold">Vite + React</h1>
+      <h1 className="text-5xl font-semibold">{APP_NAME}</h1>
       <div className="p-[2em]">
         <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}
