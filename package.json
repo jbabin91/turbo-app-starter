@@ -9,8 +9,10 @@
     "dev": "turbo dev",
     "format": "prettier -uw --cache .",
     "format:check": "prettier -uc --cache .",
+    "postinstall": "pnpm lint:ws",
     "lint": "turbo lint --continue -- --max-warnings 0 --cache --cache-location node_modules/.cache/.eslintcache",
     "lint:fix": "turbo lint --continue -- --fix --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:ws": "sherif -r packages-without-package-json",
     "prepare": "husky",
     "preview": "turbo preview",
     "storybook": "turbo storybook",
@@ -31,6 +33,7 @@
     "lint-staged": "^15.2.8",
     "prettier": "^3.3.3",
     "prettier-plugin-packagejson": "^2.5.1",
+    "sherif": "^0.10.0",
     "turbo": "^2.0.11",
     "typescript": "^5.5.4"
   },
