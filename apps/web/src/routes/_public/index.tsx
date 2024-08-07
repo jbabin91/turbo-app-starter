@@ -7,7 +7,7 @@ import reactLogo from '@/assets/react.svg';
 import { APP_NAME } from '@/configs';
 import { useExample } from '@/modules/example';
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/_public/')({
   component: IndexComponent,
 });
 
@@ -25,7 +25,7 @@ function IndexComponent() {
           <img alt="React logo" className="logo react" src={reactLogo} />
         </a>
       </div>
-      <h1 className="text-5xl font-semibold">{APP_NAME}</h1>
+      <h1>{APP_NAME}</h1>
       <div className="p-[2em]">
         <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}
