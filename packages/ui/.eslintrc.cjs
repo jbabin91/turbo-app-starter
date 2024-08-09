@@ -11,5 +11,7 @@ module.exports = {
   },
   rules: {
     'react/no-unknown-property': 'off',
+    'barrel-files/avoid-barrel-files': 'off',
+    'barrel-files/avoid-namespace-import': 'off',
   },
 };

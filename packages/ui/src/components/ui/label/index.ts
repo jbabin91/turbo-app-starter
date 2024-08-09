@@ -1,1 +1,1 @@
-export * from './label';
+export { Label, labelVariants } from './label';

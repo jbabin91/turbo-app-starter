@@ -12,9 +12,10 @@ module.exports = {
     'turbo',
     'eslint:recommended',
     'plugin:unicorn/recommended',
+    'plugin:depend/recommended',
     'prettier',
   ],
-  plugins: ['import', 'simple-import-sort', 'sort-keys-fix'],
+  plugins: ['import', 'simple-import-sort', 'barrel-files', 'sort-keys-fix'],
   rules: {
     'import/first': 'error',
     'import/newline-after-import': 'error',
@@ -34,6 +35,14 @@ module.exports = {
     ],
     'unicorn/no-null': 'off',
     'unicorn/prevent-abbreviations': 'off',
+    'barrel-files/avoid-barrel-files': [
+      'error',
+      {
+        amountOfExportsToConsiderModuleAsBarrel: 5,
+      },
+    ],
+    'barrel-files/avoid-namespace-import': 'error',
+    'barrel-files/avoid-re-export-all': 'error',
   },
   overrides: [
     {

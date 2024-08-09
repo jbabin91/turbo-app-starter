@@ -14,4 +14,4 @@ export type AppTypes = typeof routes;
 export default routes;
 
 // Types
-export * from './types';
+export type { ErrorType, EventData } from './types';

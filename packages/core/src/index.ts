@@ -1,1 +1,2 @@
-export * from './configs';
+export type { ConfigMode } from './configs';
+export { config } from './configs';

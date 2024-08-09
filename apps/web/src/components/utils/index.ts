@@ -1,2 +1,2 @@
-export * from './TanstackQueryDevtools';
-export * from './TanstackRouterDevtools';
+export { TanstackQueryDevtools } from './TanstackQueryDevtools';
+export { TanstackRouterDevtools } from './TanstackRouterDevtools';

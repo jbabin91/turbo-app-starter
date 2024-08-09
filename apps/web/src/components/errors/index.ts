@@ -1,2 +1,2 @@
-export * from './DefaultCatchBoundary';
-export * from './NotFound';
+export { DefaultCatchBoundary } from './DefaultCatchBoundary';
+export { NotFound } from './NotFound';
