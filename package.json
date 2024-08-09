@@ -5,7 +5,7 @@
     "build": "turbo build",
     "build:backend": "turbo --filter backend build",
     "build:web": "turbo --filter web build",
-    "clean": "turbo clean",
+    "clean": "turbo clean && rm -rf .turbo node_modules",
     "dev": "turbo dev",
     "format": "prettier -uw --cache .",
     "format:check": "prettier -uc --cache .",
