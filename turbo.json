@@ -11,6 +11,17 @@
     "clean": {
       "cache": false
     },
+    "db:generate": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:migrate": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:reset": {},
+    "db:seed": {},
+    "db:studio": {},
     "dev": {
       "cache": false,
       "persistent": true
