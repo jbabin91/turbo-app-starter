@@ -1,0 +1,26 @@
+{
+  "name": "@repo/auth",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf .turbo node_modules",
+    "dev": "tsc -b -w",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@lucia-auth/adapter-drizzle": "^1.1.0",
+    "@repo/core": "workspace:*",
+    "@repo/db": "workspace:*",
+    "lucia": "^3.2.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*"
+  }
+}
