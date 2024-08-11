@@ -1,4 +1,3 @@
-import '@repo/ui/ui.css';
 import './styles/globals.css';
 
 import React from 'react';
