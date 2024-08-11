@@ -15,7 +15,7 @@ module.exports = {
   },
   prompt: {
     alias: {
-      b: 'chore: :hammer: bump dependencies',
+      b: 'chore(repo): :hammer: bump dependencies',
     },
     maxSubjectLength: 100,
     allowCustomIssuePrefix: false,
