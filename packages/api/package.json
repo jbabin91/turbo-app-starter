@@ -14,10 +14,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hono/zod-openapi": "^0.15.2",
+    "@hono/zod-openapi": "^0.15.3",
     "@repo/core": "workspace:*",
     "@scalar/hono-api-reference": "0.5.109",
-    "hono": "^4.5.4",
+    "hono": "^4.5.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {

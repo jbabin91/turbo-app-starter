@@ -16,7 +16,7 @@
     "@repo/api": "workspace:*",
     "@repo/core": "workspace:*",
     "@t3-oss/env-core": "^0.11.0",
-    "hono": "^4.5.4",
+    "hono": "^4.5.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
