@@ -1,3 +1,4 @@
+import { config } from '@repo/core';
 import { useEffect, useState } from 'react';
 
 import { cn } from '../libs/utils';
@@ -35,12 +36,6 @@ export function Sidebar<T extends string | undefined>({
         className,
       )}
     >
-      {/** Overlay in mobile */}
-      {/* <div
-        className={`absolute inset-0 transition-opacity delay-100 duration-700 ${navOpened ? 'h-svh opacity-50' : 'h-0 opacity-0'} w-full bg-black md:hidden`}
-        onClick={() => setNavOpened(false)}
-      ></div> */}
-
       <Layout fixed className={navOpened ? 'h-svh' : ''}>
         {/** Header */}
         <Layout.Header
@@ -48,41 +43,12 @@ export function Sidebar<T extends string | undefined>({
           className="z-50 flex justify-between px-4 py-3 shadow-sm md:px-4"
         >
           <div className={`flex items-center ${isCollapsed ? '' : 'gap-2'}`}>
-            <svg
-              className={`transition-all ${isCollapsed ? 'size-6' : 'size-8'}`}
-              viewBox="0 0 256 256"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect fill="none" height="256" width="256"></rect>
-              <line
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-                x1="208"
-                x2="128"
-                y1="128"
-                y2="208"
-              ></line>
-              <line
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-                x1="192"
-                x2="40"
-                y1="40"
-                y2="192"
-              ></line>
-              <span className="sr-only">Website Name</span>
-            </svg>
+            <Icons.Logo className={isCollapsed ? 'size-6' : 'size-8'} />
             <div
               className={`flex flex-col justify-end truncate ${isCollapsed ? 'invisible w-0' : 'visible w-auto'}`}
             >
-              <span className="font-medium">Shadcn Admin</span>
-              <span className="text-xs">Vite + ShadcnUI</span>
+              <span className="font-medium">{config.name}</span>
+              <span className="text-xs">Vite + Tanstack</span>
             </div>
           </div>
 

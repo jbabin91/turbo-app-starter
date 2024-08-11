@@ -1,3 +1,4 @@
+import { config } from '@repo/core';
 import {
   ActivityIcon,
   ArchiveXIcon,
@@ -43,7 +44,11 @@ import {
   XIcon,
 } from 'lucide-react';
 
+import { cn } from '../libs/utils';
+
 export { type LucideIcon } from 'lucide-react';
+
+export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
   Activity: ActivityIcon,
@@ -76,6 +81,39 @@ export const Icons = {
   LayoutDashboard: LayoutDashboardIcon,
   ListTodo: ListTodoIcon,
   Loader: LoaderCircleIcon,
+  Logo: ({ className, ...props }: IconProps) => (
+    <svg
+      className={cn('transition-all size-8', className)}
+      viewBox="0 0 256 256"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <rect fill="none" height="256" width="256"></rect>
+      <line
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="16"
+        x1="208"
+        x2="128"
+        y1="128"
+        y2="208"
+      ></line>
+      <line
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="16"
+        x1="192"
+        x2="40"
+        y1="40"
+        y2="192"
+      ></line>
+      <span className="sr-only">{config.name}</span>
+    </svg>
+  ),
   Menu: MenuIcon,
   Moon: MoonIcon,
   MoreHorizontal: MoreHorizontalIcon,
