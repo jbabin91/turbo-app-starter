@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "NODE_ENV=production bun build --minify src/index.ts --outdir dist",
+    "build": "NODE_ENV=production bun build --minify src/index.ts --target bun --outdir dist",
     "clean": "rm -rf .turbo dist node_modules",
     "dev": "NODE_ENV=development bun run --hot src/index.ts",
     "lint": "eslint .",
