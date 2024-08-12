@@ -1,7 +1,7 @@
 import { errorResponses } from '../../libs/common-responses';
 import { successWithDataSchema } from '../../libs/common-schemas';
 import { createRouteConfig } from '../../libs/route-config';
-import { isPublicAccess } from '../../middlewares/guard';
+import { isPublicAccess } from '../../middlewares';
 import { exampleSchema } from './schema';
 
 class ExampleRoutesConfig {

@@ -2,6 +2,8 @@ import { type OpenAPIHono } from '@hono/zod-openapi';
 import { config } from '@repo/core';
 import { apiReference } from '@scalar/hono-api-reference';
 
+import { type Env } from '../types';
+
 const isProduction = config.mode === 'production';
 
 const openAPITags = [
@@ -9,9 +11,14 @@ const openAPITags = [
     description: 'Example endpoints',
     name: 'example',
   },
+  {
+    description:
+      'Authentication endpoints. If you do not have a cookie, you need to sign in or sign up first.',
+    name: 'auth',
+  },
 ];
 
-export const docs = (app: OpenAPIHono) => {
+export const docs = (app: OpenAPIHono<Env>) => {
   const registry = app.openAPIRegistry;
 
   registry.registerComponent('securitySchemes', 'cookieAuth', {

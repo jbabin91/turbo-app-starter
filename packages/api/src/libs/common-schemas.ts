@@ -1,5 +1,9 @@
 import { z } from 'zod';
 
+export const cookieSchema = z.string();
+
+export const idSchema = z.string();
+
 export const errorSchema = z.object({
   logId: z.string().optional(),
   message: z.string(),
