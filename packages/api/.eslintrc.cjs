@@ -9,4 +9,7 @@ module.exports = {
     project: ['./tsconfig.json'],
     tsconfigRootDir: __dirname,
   },
+  rules: {
+    'barrel-files/avoid-barrel-files': 'off',
+  },
 };
