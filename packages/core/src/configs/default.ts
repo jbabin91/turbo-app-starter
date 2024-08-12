@@ -17,6 +17,7 @@ export const config = {
   debug: false,
   maintenance: false,
 
+  domain: 'jacebabin.com',
   backendUrl: 'http://localhost:3000',
   frontendUrl: 'http://localhost:5173',
 
