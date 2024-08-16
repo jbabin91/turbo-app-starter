@@ -15,7 +15,6 @@
     "@repo/api": "workspace:*",
     "@repo/core": "workspace:*",
     "@repo/ui": "workspace:*",
-    "@t3-oss/env-core": "^0.11.0",
     "@tanstack/react-query": "^5.51.23",
     "@tanstack/react-router": "^1.48.1",
     "hono": "^4.5.5",

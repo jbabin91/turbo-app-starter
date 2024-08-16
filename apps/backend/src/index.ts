@@ -4,9 +4,7 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { csrf } from 'hono/csrf';
 
-import { env } from './configs';
-
-const PORT = env.PORT;
+const PORT = process.env.PORT ?? 3000;
 
 const app = new Hono();
 
