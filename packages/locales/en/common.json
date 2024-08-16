@@ -73,5 +73,9 @@
   "theme.light": "Light",
   "theme.dark": "Dark",
   "theme.system": "System",
-  "toggle_theme": "Toggle theme"
+  "toggle_theme": "Toggle theme",
+  "app_description": "Vite + Tanstack",
+  "date.custom_date": "Custom date format: {{value, datetime(weekday: long; year: 2-digit; month: short; day: numeric)}}",
+  "date.long_date": "Long date format: {{value, datetime(dateStyle: long)}}",
+  "hello_world": "Hello, World!"
 }

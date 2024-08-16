@@ -14,12 +14,17 @@
   "dependencies": {
     "@repo/api": "workspace:*",
     "@repo/core": "workspace:*",
+    "@repo/locales": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tanstack/react-query": "^5.51.23",
     "@tanstack/react-router": "^1.48.1",
     "hono": "^4.5.5",
+    "i18next": "^23.13.0",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "i18next-http-backend": "^2.5.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {

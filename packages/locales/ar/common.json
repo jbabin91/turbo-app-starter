@@ -1,0 +1,5 @@
+{
+  "date.custom_date": "تنسيق التاريخ المخصص: {{value, datetime(weekday: long; year: 2-digit; month: short; day: numeric)}}",
+  "date.long_date": "تنسيق التاريخ الطويل: {{value, datetime(dateStyle: long)}}",
+  "hello_world": "مرحباً بالعالم!"
+}

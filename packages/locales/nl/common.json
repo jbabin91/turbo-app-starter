@@ -1,0 +1,5 @@
+{
+  "date.custom_date": "Custom date format (NL): {{value, datetime(weekday: long; year: 2-digit; month: short; day: numeric)}}",
+  "date.long_date": "Long date format (NL): {{value, datetime(dateStyle: long)}}",
+  "hello_world": "Hello, World! (NL)"
+}

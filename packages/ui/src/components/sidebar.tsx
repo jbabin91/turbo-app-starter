@@ -1,5 +1,6 @@
 import { config } from '@repo/core';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { cn } from '../libs/utils';
 import { Icons } from './icons';
@@ -19,6 +20,7 @@ export function Sidebar<T extends string | undefined>({
   sideLinks,
 }: SidebarProps<T>) {
   const [navOpened, setNavOpened] = useState(false);
+  const { t } = useTranslation();
 
   /** Make body not scrollable when navbar is opened */
   useEffect(() => {
@@ -48,7 +50,7 @@ export function Sidebar<T extends string | undefined>({
               className={`flex flex-col justify-end truncate ${isCollapsed ? 'invisible w-0' : 'visible w-auto'}`}
             >
               <span className="font-medium">{config.name}</span>
-              <span className="text-xs">Vite + Tanstack</span>
+              <span className="text-xs">{t('common:app_description')}</span>
             </div>
           </div>
 

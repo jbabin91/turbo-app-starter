@@ -8,6 +8,7 @@ export { useLocalStorage } from './hooks/use-local-storage';
 
 // Components
 export { Icons } from './components/icons';
+export { LocaleSwitcher } from './components/locale-switcher';
 export { ModeToggle } from './components/mode-toggle';
 export type {
   NavLink,

@@ -1,4 +1,4 @@
-import { Icons, ModeToggle } from '@repo/ui';
+import { Icons, LocaleSwitcher, ModeToggle } from '@repo/ui';
 import { createFileRoute, Link, Outlet } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_public')({
@@ -21,8 +21,9 @@ function PublicLayout() {
             Dashboard
           </Link>
         </div>
-        <div>
+        <div className="flex gap-2">
           <ModeToggle />
+          <LocaleSwitcher />
         </div>
       </div>
       <div className="flex flex-col text-center">

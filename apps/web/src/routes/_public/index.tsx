@@ -1,6 +1,7 @@
 import { Button } from '@repo/ui';
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import viteLogo from '/vite.svg';
 import reactLogo from '@/assets/react.svg';
@@ -13,6 +14,7 @@ export const Route = createFileRoute('/_public/')({
 
 function IndexComponent() {
   const [count, setCount] = useState(0);
+  const { t } = useTranslation();
   const { data } = useExample();
 
   return (
@@ -26,6 +28,12 @@ function IndexComponent() {
         </a>
       </div>
       <h1>{APP_NAME}</h1>
+      <p>{t('common:hello_world')}</p>
+      <p>
+        {t('common:date.long_date', {
+          date: new Date('2024-01-25'),
+        })}
+      </p>
       <div className="p-[2em]">
         <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}
