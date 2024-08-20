@@ -15,6 +15,13 @@
       "when": 1723353229134,
       "tag": "0001_robust_whistler",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1724184019274,
+      "tag": "0002_worthless_blue_blade",
+      "breakpoints": true
     }
   ]
 }
