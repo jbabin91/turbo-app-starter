@@ -1,9 +1,7 @@
-import { OpenAPIHono } from '@hono/zod-openapi';
-
-import { type Env } from '../../types';
 import exampleRoutesConfig from './routes';
+import CustomHono from '../../libs/custom-hono';
 
-const app = new OpenAPIHono<Env>();
+const app = new CustomHono();
 
 // Example endpoints
 const exampleRoutes = app.openapi(exampleRoutesConfig.getExample, (c) => {

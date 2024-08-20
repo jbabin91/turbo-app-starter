@@ -16,6 +16,10 @@ const openAPITags = [
       'Authentication endpoints. If you do not have a cookie, you need to sign in or sign up first.',
     name: 'auth',
   },
+  {
+    description: '',
+    name: 'me',
+  },
 ];
 
 export const docs = (app: OpenAPIHono<Env>) => {

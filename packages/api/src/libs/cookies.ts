@@ -10,12 +10,12 @@ const isProduction = config.mode === 'production';
 
 export function setCookie(c: Context, name: string, value: string) {
   return baseSetCookie(c, name, value, {
+    secure: isProduction, // set `Secure` flag in HTTPS
+    path: '/',
     domain: isProduction ? config.domain : undefined,
     httpOnly: true,
-    maxAge: 60 * 10, // 10 minutes
-    path: '/',
     sameSite: isProduction ? 'strict' : 'lax',
-    secure: isProduction, // set `Secure` flag in HTTPS
+    maxAge: 60 * 10, // 10 minutes
   });
 }
 
@@ -24,10 +24,32 @@ export async function setSessionCookie(
   userId: UserModel['id'],
   strategy: string,
 ) {
-  const session = await lucia.createSession(userId, {});
+  const session = await lucia.createSession(userId, {
+    type: 'regular',
+    adminUserId: null,
+  });
   const sessionCookie = lucia.createSessionCookie(session.id);
 
   logEvent('User signed in', { strategy, user: userId });
+
+  c.header('Set-Cookie', sessionCookie.serialize());
+}
+
+export async function setImpersonationSessionCookie(
+  c: Context,
+  userId: UserModel['id'],
+  adminUserId: UserModel['id'],
+) {
+  const session = await lucia.createSession(userId, {
+    type: 'impersonation',
+    adminUserId,
+  });
+  const sessionCookie = lucia.createSessionCookie(session.id);
+
+  logEvent('Admin impersonation signed in', {
+    user: userId,
+    strategy: 'impersonation',
+  });
 
   c.header('Set-Cookie', sessionCookie.serialize());
 }
