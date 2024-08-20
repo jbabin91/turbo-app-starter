@@ -34,10 +34,7 @@ export const users = pgTable(
       mode: 'string',
       withTimezone: true,
     }), // last time GET me
-    lastSignInAt: timestamp('last_sign_in_at', {
-      mode: 'string',
-      withTimezone: true,
-    }), // last time user went through authentication flow
+    lastSignInAt: timestamp('last_sign_in_at'), // last time user went through authentication flow
     createdAt: timestamp('created_at', {
       mode: 'string',
       withTimezone: true,

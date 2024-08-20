@@ -1,10 +1,11 @@
 import { lucia } from '@repo/auth';
 import { config } from '@repo/core';
-import { type UserModel } from '@repo/db';
+import { db, users, type UserModel } from '@repo/db';
 import { type Context } from 'hono';
 import { setCookie as baseSetCookie } from 'hono/cookie';
 
 import { logEvent } from '../middlewares';
+import { eq } from 'drizzle-orm';
 
 const isProduction = config.mode === 'production';
 
@@ -29,6 +30,9 @@ export async function setSessionCookie(
     adminUserId: null,
   });
   const sessionCookie = lucia.createSessionCookie(session.id);
+
+  const lastSignInAt = new Date();
+  await db.update(users).set({ lastSignInAt }).where(eq(users.id, userId));
 
   logEvent('User signed in', { strategy, user: userId });
 
