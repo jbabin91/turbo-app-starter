@@ -40,26 +40,4 @@ i18n.use(Backend).use(LanguageDetector).use(initReactI18next).init(initOptions);
 i18n.services.formatter?.add('number', number);
 i18n.services.formatter?.add('datetime', datetime);
 
-// eslint-disable-next-line unicorn/prefer-export-from
-export default i18n;
-
-// i18n
-//   .use(i18nBackend)
-//   .use(LanguageDetector)
-//   .use(initReactI18next)
-//   .init({
-//     debug: true,
-//     defaultNS: 'common',
-//     fallbackLng: 'en',
-//     interpolation: {
-//       escapeValue: false,
-//     },
-//     lng: 'en',
-//     ns: ['common', 'about'],
-//     supportedLngs: Object.keys(supportedLngs),
-//   });
-
-// i18n.services.formatter?.add('number', number);
-// i18n.services.formatter?.add('datetime', datetime);
-
-// export { default } from 'i18next';
+export { default } from 'i18next';

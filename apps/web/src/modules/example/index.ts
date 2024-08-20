@@ -2,4 +2,4 @@ export {
   getExample,
   getExampleQueryOptions,
   useExample,
-} from './api/get-example';
+} from './api/get-example.ts';

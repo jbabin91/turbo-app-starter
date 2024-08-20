@@ -1,2 +1,2 @@
-export { DefaultCatchBoundary } from './DefaultCatchBoundary';
-export { NotFound } from './NotFound';
+export { DefaultCatchBoundary } from './DefaultCatchBoundary.tsx';
+export { NotFound } from './NotFound.tsx';

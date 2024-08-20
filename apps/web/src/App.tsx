@@ -1,4 +1,4 @@
-import { useLocalizeDocumentAttributes } from './hooks/use-localize-document-attributes';
+import { useLocalizeDocumentAttributes } from './hooks';
 import { Providers } from './providers';
 
 function App() {

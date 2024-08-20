@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import viteLogo from '/vite.svg';
 import reactLogo from '@/assets/react.svg';
+import { MetaTags } from '@/components/utils';
 import { APP_NAME } from '@/configs';
 import { useExample } from '@/modules/example';
 
@@ -19,6 +20,7 @@ function IndexComponent() {
 
   return (
     <>
+      <MetaTags title={APP_NAME} />
       <div className="flex justify-center">
         <a href="https://vitejs.dev" rel="noreferrer" target="_blank">
           <img alt="Vite logo" className="logo" src={viteLogo} />
