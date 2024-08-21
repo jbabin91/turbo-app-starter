@@ -33,3 +33,7 @@ export const successWithErrorsSchema = () =>
     errors: z.array(errorSchema),
     success: z.boolean(),
   });
+
+export const idsQuerySchema = z.object({
+  ids: z.union([z.string(), z.array(z.string())]),
+});

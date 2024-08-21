@@ -1,4 +1,5 @@
 import {
+  idsQuerySchema,
   successWithDataSchema,
   successWithErrorsSchema,
   successWithoutDataSchema,
@@ -6,7 +7,7 @@ import {
 import { createRouteConfig } from '../../libs/route-config';
 import { isAuthenticated } from '../../middlewares';
 import { errorResponses } from '../../libs/common-responses';
-import { meUserSchema } from './schema';
+import { meUserSchema, signUpInfo } from './schema';
 import { updateUserSchema, userSchema } from '@repo/db';
 
 class MeRoutesConfig {
@@ -54,7 +55,7 @@ class MeRoutesConfig {
         description: 'User',
         content: {
           'application/json': {
-            schema: successWithDataSchema(userSchema),
+            schema: successWithDataSchema(userSchema.extend(signUpInfo.shape)),
           },
         },
       },
@@ -90,6 +91,9 @@ class MeRoutesConfig {
     summary: 'Terminate sessions',
     description:
       'Terminate all sessions of the current user, except for the current session.',
+    request: {
+      query: idsQuerySchema,
+    },
     responses: {
       200: {
         description: 'Success',
