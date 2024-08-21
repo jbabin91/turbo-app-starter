@@ -30,10 +30,7 @@ export const users = pgTable(
       mode: 'string',
       withTimezone: true,
     }), // last time any GET request has been made
-    lastVisitAt: timestamp('last_visit_at', {
-      mode: 'string',
-      withTimezone: true,
-    }), // last time GET me
+    lastVisitAt: timestamp('last_visit_at'), // last time GET me
     lastSignInAt: timestamp('last_sign_in_at'), // last time user went through authentication flow
     createdAt: timestamp('created_at', {
       mode: 'string',
@@ -41,10 +38,7 @@ export const users = pgTable(
     })
       .notNull()
       .defaultNow(),
-    modifiedAt: timestamp('modified_at', {
-      mode: 'string',
-      withTimezone: true,
-    }),
+    modifiedAt: timestamp('modified_at'),
     modifiedBy: text('modified_by'),
   },
   (table) => {
