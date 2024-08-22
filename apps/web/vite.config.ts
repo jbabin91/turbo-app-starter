@@ -22,9 +22,7 @@ export default defineConfig({
   plugins: [
     react(),
     TanStackRouterVite({
-      experimental: {
-        enableCodeSplitting: true,
-      },
+      autoCodeSplitting: true,
     }),
     tsconfigPaths(),
   ],
