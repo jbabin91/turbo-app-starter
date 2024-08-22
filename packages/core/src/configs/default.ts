@@ -15,7 +15,7 @@ export const config = {
   supportedLanguages: ['en', 'ar', 'nl'] as const,
   languages: {
     en: 'English',
-    ar: 'Arabic (العربية)',
+    ar: 'Arabic',
     nl: 'Nederlands',
   },
 
