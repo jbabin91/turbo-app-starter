@@ -7,6 +7,8 @@ import {
   timestamp,
 } from 'drizzle-orm/pg-core';
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
+import { z } from 'zod';
+import { nameSchema } from '../libs/common-schema';
 
 const roleEnum = config.rolesByType.systemRoles;
 const supportedLanguagesEnum = config.supportedLanguages;
@@ -56,11 +58,22 @@ export const users = pgTable(
   },
 );
 
-export const userSchema = createSelectSchema(users).omit({
+export const userSchema = createSelectSchema(users, {
+  email: z.string().email(),
+  lastSeenAt: z.string().nullable(),
+  lastVisitAt: z.string().nullable(),
+  lastSignInAt: z.string().nullable(),
+  createdAt: z.string(),
+  modifiedAt: z.string().nullable(),
+}).omit({
   hashedPassword: true,
 });
 export const insertUserSchema = createInsertSchema(users);
-export const updateUserSchema = createInsertSchema(users)
+export const updateUserSchema = createInsertSchema(users, {
+  email: z.string().email(),
+  firstName: nameSchema,
+  lastName: nameSchema,
+})
   .pick({
     email: true,
     firstName: true,
