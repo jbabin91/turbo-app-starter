@@ -1,19 +1,26 @@
-import { OpenAPIHono } from '@hono/zod-openapi';
 import { config } from '@repo/core';
 import { cors } from 'hono/cors';
 import { csrf } from 'hono/csrf';
 import { secureHeaders } from 'hono/secure-headers';
 
-import { type Env } from '../types';
 import { logEvent, logger } from './logger';
+import CustomHono from '../libs/custom-hono';
 
-const middlewares = new OpenAPIHono<Env>();
+const app = new CustomHono();
 
 // Secure headers
-middlewares.use(secureHeaders());
+app.use(secureHeaders());
+
+// Logger
+app.use('*', logger(logEvent as unknown as Parameters<typeof logger>[0]));
+
+// Health check
+app.get('/healthcheck', (c) => {
+  return c.text('OK');
+});
 
 // CORS
-middlewares.use(
+app.use(
   cors({
     allowHeaders: [],
     allowMethods: ['GET', 'HEAD', 'PUT', 'POST', 'DELETE'],
@@ -23,21 +30,9 @@ middlewares.use(
 );
 
 // CSRF
-middlewares.use(
-  csrf({
-    origin: [config.frontendUrl, config.backendUrl],
-  }),
-);
+app.use(csrf({ origin: [config.frontendUrl, config.backendUrl] }));
 
-// Logger
-middlewares.use(logger(logEvent as unknown as Parameters<typeof logger>[0]));
-
-// Health check
-middlewares.get('/healthcheck', (c) => {
-  return c.text('OK');
-});
-
-export { middlewares };
+export default app;
 
 // Guard Middleware
 export { isAuthenticated, isPublicAccess, isSystemAdmin } from './guard';
