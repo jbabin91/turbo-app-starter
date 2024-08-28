@@ -30,7 +30,7 @@
     "@faker-js/faker": "^8.4.1",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "drizzle-kit": "^0.24.1",
-    "tsx": "^4.17.0"
+    "drizzle-kit": "^0.24.2",
+    "tsx": "^4.19.0"
   }
 }
