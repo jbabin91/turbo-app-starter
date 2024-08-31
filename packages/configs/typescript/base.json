@@ -39,7 +39,7 @@
     "pretty": true,
     "preserveWatchOutput": true,
 
-    "tsBuildInfoFile": "${configDir}/node_modules/.cache/tsconfig.tsbuildinfo"
+    "tsBuildInfoFile": "${configDir}/node_modules/.cache/typescript/tsconfig.tsbuildinfo"
   },
   "include": [
     "${configDir}/.commitlintrc.cjs",
