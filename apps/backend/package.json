@@ -15,7 +15,7 @@
   "dependencies": {
     "@repo/api": "workspace:*",
     "@repo/core": "workspace:*",
-    "hono": "^4.5.9",
+    "hono": "^4.5.10",
     "zod": "^3.23.8"
   },
   "devDependencies": {
