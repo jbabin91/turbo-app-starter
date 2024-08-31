@@ -6,10 +6,12 @@ import { exampleSchema } from './schema';
 
 class ExampleRoutesConfig {
   public getExample = createRouteConfig({
-    description: 'Returns an example message',
-    guard: isPublicAccess,
     method: 'get',
     path: '/',
+    guard: isPublicAccess,
+    tags: ['example'],
+    summary: 'Example Request',
+    description: 'Returns an example message',
     responses: {
       200: {
         content: {
@@ -21,8 +23,6 @@ class ExampleRoutesConfig {
       },
       ...errorResponses,
     },
-    summary: 'Example Request',
-    tags: ['example'],
   });
 }
 

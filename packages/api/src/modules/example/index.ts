@@ -7,10 +7,10 @@ const app = new CustomHono();
 const exampleRoutes = app.openapi(exampleRoutesConfig.getExample, (c) => {
   return c.json(
     {
+      success: true,
       data: {
         message: 'Hello World!',
       },
-      success: true,
     },
     200,
   );

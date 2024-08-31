@@ -46,8 +46,8 @@ const authRoutes = app
 
     return c.json(
       {
-        data: transformDatabaseUser(user!),
         success: true,
+        data: transformDatabaseUser(user!),
       },
       200,
     );
@@ -82,8 +82,8 @@ const authRoutes = app
 
     return c.json(
       {
-        data: transformDatabaseUser(user),
         success: true,
+        data: transformDatabaseUser(user),
       },
       200,
     );
