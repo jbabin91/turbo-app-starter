@@ -29,7 +29,7 @@
     "lint": {
       "dependsOn": ["^lint"],
       "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"],
-      "outputs": ["node_modules/.cache/.eslintcache"]
+      "outputs": ["node_modules/.cache/eslint/.eslintcache"]
     },
     "preview": {
       "dependsOn": ["^preview", "build"],
@@ -41,7 +41,7 @@
     },
     "typecheck": {
       "dependsOn": ["^typecheck"],
-      "outputs": ["node_modules/.cache/*.tsbuildinfo"]
+      "outputs": ["node_modules/.cache/typescript/*.tsbuildinfo"]
     }
   }
 }

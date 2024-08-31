@@ -1,10 +1,10 @@
 import js from '@eslint/js';
-// @ts-ignore
 import eslintConfigPrettier from 'eslint-config-prettier';
 // @ts-ignore
 import barrelFiles from 'eslint-plugin-barrel-files';
 import depend from 'eslint-plugin-depend';
 import importX from 'eslint-plugin-import-x';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 // @ts-ignore
 // eslint-disable-next-line depend/ban-dependencies
 import react from 'eslint-plugin-react';
@@ -15,14 +15,13 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import sortKeysFix from 'eslint-plugin-sort-keys-fix';
 // @ts-ignore
 import storybook from 'eslint-plugin-storybook';
-// @ts-ignore
 import tailwindcss from 'eslint-plugin-tailwindcss';
 import unicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['node_modules', 'dist', '.turbo', '*.gen.ts'] },
+  { ignores: ['node_modules', '**/dist', '.turbo', '*.gen.ts'] },
   depend.configs['flat/recommended'],
   {
     languageOptions: {
@@ -119,6 +118,7 @@ export default tseslint.config(
   {
     files: ['*.{jsx,tsx}'],
     plugins: {
+      'jsx-a11y': jsxA11y,
       react,
       'react-hooks': reactHooks,
       tailwindcss,
@@ -127,6 +127,7 @@ export default tseslint.config(
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
+      ...jsxA11y.flatConfigs.recommended.rules,
       ...tailwindcss.configs.recommended.rules,
       'react/jsx-sort-props': [
         'error',

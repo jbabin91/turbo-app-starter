@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -8,21 +9,21 @@ const configs = fs.readdirSync(path.resolve(__dirname, 'packages/configs'));
 /** @type {import("cz-git").UserConfig} */
 module.exports = {
   extends: ['@commitlint/config-conventional'],
-  rules: {
-    'subject-min-length': [2, 'always', 2],
-    'subject-empty': [2, 'never'],
-    'scope-enum': [2, 'always', ['repo', ...apps, ...packages, ...configs]],
-  },
   prompt: {
     alias: {
       b: 'chore(repo): :hammer: bump dependencies',
     },
-    maxSubjectLength: 100,
     allowCustomIssuePrefix: false,
     allowEmptyIssuePrefix: false,
+    enableMultipleScopes: true,
+    maxSubjectLength: 100,
+    scopeEnumSeparator: ',',
     skipQuestions: ['footer'],
     useEmoji: true,
-    enableMultipleScopes: true,
-    scopeEnumSeparator: ',',
+  },
+  rules: {
+    'scope-enum': [2, 'always', ['repo', ...apps, ...packages, ...configs]],
+    'subject-empty': [2, 'never'],
+    'subject-min-length': [2, 'always', 2],
   },
 };
