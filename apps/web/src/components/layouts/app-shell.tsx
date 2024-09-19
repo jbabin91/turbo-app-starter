@@ -1,24 +1,23 @@
-import { Icons, Sidebar, type SideLink, useIsCollapsed } from '@repo/ui';
-import { Outlet, type ParseRoute } from '@tanstack/react-router';
+import { Icons, useIsCollapsed } from '@repo/ui';
+import { Outlet } from '@tanstack/react-router';
 
-import { type routeTree } from '@/routeTree.gen';
-
-type ValidRoutes = ParseRoute<typeof routeTree>['fullPath'];
+import { SideLink } from './nav';
+import { Sidebar } from './sidebar';
 
 const sideLinks = [
   {
-    href: '/dashboard',
+    to: '/dashboard',
     icon: <Icons.LayoutDashboard />,
     label: '',
     title: 'Dashboard',
   },
   {
-    href: '/',
+    to: '/',
     icon: <Icons.ListTodo />,
     label: '3',
     title: 'Tasks',
   },
-] as SideLink<ValidRoutes>[];
+] as SideLink[];
 
 export function AppShell() {
   const [isCollapsed, setIsCollapsed] = useIsCollapsed();

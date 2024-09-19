@@ -1,11 +1,7 @@
-import { Link } from '@tanstack/react-router';
-
-import { useCheckActiveNav } from '../hooks/use-check-active-nav';
-import { cn } from '../libs/utils';
-import { Icons } from './icons';
 import {
   Button,
   buttonVariants,
+  cn,
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
@@ -15,40 +11,38 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  Icons,
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from './ui';
+} from '@repo/ui';
+import { useCheckActiveNav } from '@/hooks';
+import { Link, LinkProps } from '@tanstack/react-router';
 
-export type NavLink<T extends string | undefined> = {
+export type NavLink = {
   title: string;
   label?: string;
-  href: T;
   icon: JSX.Element;
-};
+} & LinkProps &
+  React.RefAttributes<HTMLAnchorElement>;
 
-export type SideLink<T extends string | undefined> = {
-  sub?: NavLink<T>[];
-} & NavLink<T>;
+export type SideLink = {
+  sub?: NavLink[];
+} & NavLink;
 
-export type NavProps<T extends string | undefined> = {
+export type NavProps = {
   isCollapsed: boolean;
-  links: SideLink<T>[];
+  links: SideLink[];
   closeNav: () => void;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export type NavLinkProps<T extends string | undefined> = {
+export type NavLinkProps = {
   subLink?: boolean;
   closeNav: () => void;
-} & SideLink<T>;
+} & SideLink;
 
-export function Nav<T extends string | undefined>({
-  links,
-  isCollapsed,
-  className,
-  closeNav,
-}: NavProps<T>) {
+export function Nav({ links, isCollapsed, className, closeNav }: NavProps) {
   return (
     <div
       className={cn(
@@ -59,8 +53,8 @@ export function Nav<T extends string | undefined>({
     >
       <TooltipProvider delayDuration={0}>
         <nav className="grid gap-1 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
-          {links.map(({ sub, ...rest }: SideLink<T>) => {
-            const key = `${rest.title}-${rest.href}`;
+          {links.map(({ sub, ...rest }: SideLink) => {
+            const key = `${rest.title}-${rest.to}`;
             if (isCollapsed && sub) {
               return (
                 <NavLinkIconDropdown
@@ -95,28 +89,31 @@ export function Nav<T extends string | undefined>({
   );
 }
 
-function NavLink<T extends string | undefined>({
+function NavLink({
   title,
   icon,
   label,
-  href,
+  to,
   closeNav,
   subLink = false,
-}: NavLinkProps<T>) {
+  ...props
+}: NavLinkProps) {
   const { checkActiveNav } = useCheckActiveNav();
+
   return (
     <Link
-      aria-current={checkActiveNav(href) ? 'page' : undefined}
+      aria-current={checkActiveNav(to) ? 'page' : undefined}
       className={cn(
         buttonVariants({
           size: 'sm',
-          variant: checkActiveNav(href) ? 'secondary' : 'ghost',
+          variant: checkActiveNav(to) ? 'secondary' : 'ghost',
         }),
         'h-12 justify-start text-wrap rounded-none px-6',
         subLink ? 'h-10 w-full border-l border-l-slate-500 px-2' : '',
       )}
-      to={href}
+      to={to}
       onClick={closeNav}
+      {...props}
     >
       <div className="mr-2">{icon}</div>
       {title}
@@ -129,20 +126,14 @@ function NavLink<T extends string | undefined>({
   );
 }
 
-function NavLinkDropdown<T extends string | undefined>({
-  title,
-  icon,
-  label,
-  sub,
-  closeNav,
-}: NavLinkProps<T>) {
+function NavLinkDropdown({ title, icon, label, sub, closeNav }: NavLinkProps) {
   const { checkActiveNav } = useCheckActiveNav();
 
   /**
    * Open collapsible by default
    * if one of child element is active
    */
-  const isChildActive = !!sub?.find((s) => checkActiveNav(s.href));
+  const isChildActive = !!sub?.find((s) => checkActiveNav(s.to));
 
   return (
     <Collapsible defaultOpen={isChildActive}>
@@ -176,12 +167,7 @@ function NavLinkDropdown<T extends string | undefined>({
   );
 }
 
-function NavLinkIcon<T extends string | undefined>({
-  title,
-  icon,
-  label,
-  href,
-}: NavLinkProps<T>) {
+function NavLinkIcon({ title, icon, label, to, ...props }: NavLinkProps) {
   const { checkActiveNav } = useCheckActiveNav();
   return (
     <Tooltip delayDuration={0}>
@@ -190,11 +176,12 @@ function NavLinkIcon<T extends string | undefined>({
           className={cn(
             buttonVariants({
               size: 'icon',
-              variant: checkActiveNav(href) ? 'secondary' : 'ghost',
+              variant: checkActiveNav(to) ? 'secondary' : 'ghost',
             }),
             'size-12',
           )}
-          to={href}
+          to={to}
+          {...props}
         >
           {icon}
           <span className="sr-only">{title}</span>
@@ -210,19 +197,14 @@ function NavLinkIcon<T extends string | undefined>({
   );
 }
 
-function NavLinkIconDropdown<T extends string | undefined>({
-  title,
-  icon,
-  label,
-  sub,
-}: NavLinkProps<T>) {
+function NavLinkIconDropdown({ title, icon, label, sub }: NavLinkProps) {
   const { checkActiveNav } = useCheckActiveNav();
 
   /**
    * Open collapsible by default
    * if one of child element is active
    */
-  const isChildActive = !!sub?.find((s) => checkActiveNav(s.href));
+  const isChildActive = !!sub?.find((s) => checkActiveNav(s.to));
 
   return (
     <DropdownMenu>
@@ -254,11 +236,12 @@ function NavLinkIconDropdown<T extends string | undefined>({
           {title} {label ? `(${label})` : ''}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        {sub!.map(({ title, icon, label, href }) => (
-          <DropdownMenuItem key={`${title}-${href}`} asChild>
+        {sub!.map(({ title, icon, label, to, ...props }) => (
+          <DropdownMenuItem key={`${title}-${to}`} asChild>
             <Link
-              className={`${checkActiveNav(href) ? 'bg-secondary' : ''}`}
-              to={href}
+              className={`${checkActiveNav(to) ? 'bg-secondary' : ''}`}
+              to={to}
+              {...props}
             >
               {icon} <span className="ml-2 max-w-52 text-wrap">{title}</span>
               {label ? <span className="ml-auto text-xs">{label}</span> : null}

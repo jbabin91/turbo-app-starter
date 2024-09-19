@@ -2,7 +2,6 @@
 export { cn } from './libs/utils';
 
 // Hooks
-export { useCheckActiveNav } from './hooks/use-check-active-nav';
 export { useIsCollapsed } from './hooks/use-is-collapsed';
 export { useLocalStorage } from './hooks/use-local-storage';
 
@@ -10,15 +9,6 @@ export { useLocalStorage } from './hooks/use-local-storage';
 export { Icons } from './components/icons';
 export { LocaleSwitcher } from './components/locale-switcher';
 export { ModeToggle } from './components/mode-toggle';
-export type {
-  NavLink,
-  NavLinkProps,
-  NavProps,
-  SideLink,
-} from './components/nav';
-export { Nav } from './components/nav';
-export type { SidebarProps } from './components/sidebar';
-export { Sidebar } from './components/sidebar';
 export { TailwindIndicator } from './components/tailwind-indicator';
 export type { Theme } from './components/theme-provider';
 export { ThemeProvider, useTheme } from './components/theme-provider';

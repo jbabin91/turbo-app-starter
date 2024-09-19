@@ -19,13 +19,13 @@
     "@repo/core": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/locales": "workspace:*",
-    "@scalar/hono-api-reference": "0.5.109",
+    "@scalar/hono-api-reference": "0.5.146",
     "drizzle-orm": "^0.33.0",
-    "hono": "^4.6.1",
+    "hono": "^4.6.2",
     "hono-rate-limiter": "^0.4.0",
     "i18next": "^23.15.1",
     "lucia": "^3.2.0",
-    "react-i18next": "^15.0.1",
+    "react-i18next": "^15.0.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {

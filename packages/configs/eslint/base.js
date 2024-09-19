@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import pluginRouter from '@tanstack/eslint-plugin-router';
 import eslintConfigPrettier from 'eslint-config-prettier';
 // @ts-ignore
 import barrelFiles from 'eslint-plugin-barrel-files';
@@ -23,6 +24,7 @@ import tseslint from 'typescript-eslint';
 export default tseslint.config(
   { ignores: ['node_modules', '**/dist', '.turbo', '*.gen.ts'] },
   depend.configs['flat/recommended'],
+  ...pluginRouter.configs['flat/recommended'],
   {
     languageOptions: {
       globals: {

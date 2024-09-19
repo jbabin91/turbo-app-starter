@@ -2,23 +2,21 @@ import { config } from '@repo/core';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { cn } from '../libs/utils';
-import { Icons } from './icons';
 import { Nav, type SideLink } from './nav';
-import { Button, Layout } from './ui';
+import { Button, cn, Icons, Layout } from '@repo/ui';
 
-export type SidebarProps<T extends string | undefined> = {
+export type SidebarProps = {
   isCollapsed: boolean;
   setIsCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
-  sideLinks: SideLink<T>[];
+  sideLinks: SideLink[];
 } & React.HTMLAttributes<HTMLElement>;
 
-export function Sidebar<T extends string | undefined>({
+export function Sidebar({
   className,
   isCollapsed,
   setIsCollapsed,
   sideLinks,
-}: SidebarProps<T>) {
+}: SidebarProps) {
   const [navOpened, setNavOpened] = useState(false);
   const { t } = useTranslation();
 

@@ -101,17 +101,97 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({
-  AppRouteRoute: AppRouteRoute.addChildren({
-    AppDashboardRouteRoute: AppDashboardRouteRoute.addChildren({
-      AppDashboardIndexRoute,
-    }),
-  }),
-  PublicRouteRoute: PublicRouteRoute.addChildren({
-    PublicAboutRoute,
-    PublicIndexRoute,
-  }),
-})
+interface AppDashboardRouteRouteChildren {
+  AppDashboardIndexRoute: typeof AppDashboardIndexRoute
+}
+
+const AppDashboardRouteRouteChildren: AppDashboardRouteRouteChildren = {
+  AppDashboardIndexRoute: AppDashboardIndexRoute,
+}
+
+const AppDashboardRouteRouteWithChildren =
+  AppDashboardRouteRoute._addFileChildren(AppDashboardRouteRouteChildren)
+
+interface AppRouteRouteChildren {
+  AppDashboardRouteRoute: typeof AppDashboardRouteRouteWithChildren
+}
+
+const AppRouteRouteChildren: AppRouteRouteChildren = {
+  AppDashboardRouteRoute: AppDashboardRouteRouteWithChildren,
+}
+
+const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(
+  AppRouteRouteChildren,
+)
+
+interface PublicRouteRouteChildren {
+  PublicAboutRoute: typeof PublicAboutRoute
+  PublicIndexRoute: typeof PublicIndexRoute
+}
+
+const PublicRouteRouteChildren: PublicRouteRouteChildren = {
+  PublicAboutRoute: PublicAboutRoute,
+  PublicIndexRoute: PublicIndexRoute,
+}
+
+const PublicRouteRouteWithChildren = PublicRouteRoute._addFileChildren(
+  PublicRouteRouteChildren,
+)
+
+export interface FileRoutesByFullPath {
+  '': typeof PublicRouteRouteWithChildren
+  '/dashboard': typeof AppDashboardRouteRouteWithChildren
+  '/about': typeof PublicAboutRoute
+  '/': typeof PublicIndexRoute
+  '/dashboard/': typeof AppDashboardIndexRoute
+}
+
+export interface FileRoutesByTo {
+  '': typeof AppRouteRouteWithChildren
+  '/about': typeof PublicAboutRoute
+  '/': typeof PublicIndexRoute
+  '/dashboard': typeof AppDashboardIndexRoute
+}
+
+export interface FileRoutesById {
+  __root__: typeof rootRoute
+  '/_app': typeof AppRouteRouteWithChildren
+  '/_public': typeof PublicRouteRouteWithChildren
+  '/_app/dashboard': typeof AppDashboardRouteRouteWithChildren
+  '/_public/about': typeof PublicAboutRoute
+  '/_public/': typeof PublicIndexRoute
+  '/_app/dashboard/': typeof AppDashboardIndexRoute
+}
+
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '' | '/dashboard' | '/about' | '/' | '/dashboard/'
+  fileRoutesByTo: FileRoutesByTo
+  to: '' | '/about' | '/' | '/dashboard'
+  id:
+    | '__root__'
+    | '/_app'
+    | '/_public'
+    | '/_app/dashboard'
+    | '/_public/about'
+    | '/_public/'
+    | '/_app/dashboard/'
+  fileRoutesById: FileRoutesById
+}
+
+export interface RootRouteChildren {
+  AppRouteRoute: typeof AppRouteRouteWithChildren
+  PublicRouteRoute: typeof PublicRouteRouteWithChildren
+}
+
+const rootRouteChildren: RootRouteChildren = {
+  AppRouteRoute: AppRouteRouteWithChildren,
+  PublicRouteRoute: PublicRouteRouteWithChildren,
+}
+
+export const routeTree = rootRoute
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
 
 /* prettier-ignore-end */
 

@@ -20,10 +20,10 @@ export default defineConfig({
     },
   },
   plugins: [
-    react(),
     TanStackRouterVite({
       autoCodeSplitting: true,
     }),
+    react(),
     tsconfigPaths(),
   ],
   preview: {
