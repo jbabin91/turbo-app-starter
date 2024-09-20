@@ -4,7 +4,7 @@ const path = require('node:path');
 
 const apps = fs.readdirSync(path.resolve(__dirname, 'apps'));
 const packages = fs.readdirSync(path.resolve(__dirname, 'packages'));
-const configs = fs.readdirSync(path.resolve(__dirname, 'packages/configs'));
+const configs = fs.readdirSync(path.resolve(__dirname, 'configs'));
 
 /** @type {import("cz-git").UserConfig} */
 module.exports = {
