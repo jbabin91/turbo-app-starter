@@ -19,7 +19,7 @@
     "@repo/core": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/locales": "workspace:*",
-    "@scalar/hono-api-reference": "0.5.146",
+    "@scalar/hono-api-reference": "^0.5.147",
     "drizzle-orm": "^0.33.0",
     "hono": "^4.6.2",
     "hono-rate-limiter": "^0.4.0",
