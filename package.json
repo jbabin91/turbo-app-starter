@@ -18,7 +18,7 @@
     "postinstall": "pnpm lint:ws",
     "lint": "eslint . --max-warnings 0 && turbo lint --continue -- --max-warnings 0 --cache --cache-location node_modules/.cache/eslint/.eslintcache",
     "lint:fix": "eslint . --fix && turbo lint --continue -- --fix --cache --cache-location node_modules/.cache/eslint/.eslintcache",
-    "lint:ws": "sherif -r packages-without-package-json",
+    "lint:ws": "sherif",
     "prepare": "husky",
     "preview": "pnpm with-env turbo preview",
     "storybook": "turbo storybook",

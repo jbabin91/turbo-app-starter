@@ -14,6 +14,7 @@ export default defineConfig({
         entryFileNames: 'assets/[name].[hash].js',
         manualChunks: {
           react: ['react', 'react-dom'],
+          tanstack: ['@tanstack/react-router', '@tanstack/react-query'],
           ui: ['@repo/ui'],
         },
       },
