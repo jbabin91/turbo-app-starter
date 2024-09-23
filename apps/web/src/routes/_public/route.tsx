@@ -8,8 +8,8 @@ export const Route = createFileRoute('/_public')({
 function PublicLayout() {
   return (
     <>
-      <div className="flex justify-between gap-2 border-b border-gray-400 p-2">
-        <div className="flex items-center gap-2 p-2">
+      <header className="flex justify-between gap-2 border-b border-gray-400 p-2">
+        <nav className="flex items-center gap-2 p-2">
           <Icons.Logo />
           <Link className="[&.active]:font-bold" to="/">
             Home
@@ -20,12 +20,16 @@ function PublicLayout() {
           <Link className="[&.active]:font-bold" to="/dashboard">
             Dashboard
           </Link>
-        </div>
+        </nav>
         <div className="flex gap-2">
+          <div className="flex items-center gap-2 p-2">
+            <Link to="/sign-in">Sign In</Link>
+            <Link to="/sign-up">Sign Up</Link>
+          </div>
           <ModeToggle />
           <LocaleSwitcher />
         </div>
-      </div>
+      </header>
       <div className="flex flex-col text-center">
         <Outlet />
       </div>
