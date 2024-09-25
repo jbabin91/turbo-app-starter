@@ -1,6 +1,6 @@
 {
-  "id": "6872c6cb-c6f7-4e8e-9010-e4f280226ad7",
-  "prevId": "d42cb08a-be2e-4cee-bdcf-5a49abd28afa",
+  "id": "8ec595e8-60a6-4be7-ab45-eac0bd66c5f1",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -251,7 +251,7 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true,
-          "default": "'en'"
+          "default": "'en-US'"
         },
         "role": {
           "name": "role",
@@ -268,7 +268,7 @@
         },
         "last_visit_at": {
           "name": "last_visit_at",
-          "type": "timestamp with time zone",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": false
         },
@@ -287,7 +287,7 @@
         },
         "modified_at": {
           "name": "modified_at",
-          "type": "timestamp with time zone",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": false
         },
