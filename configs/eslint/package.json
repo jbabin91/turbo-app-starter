@@ -14,14 +14,14 @@
   "devDependencies": {
     "@eslint/compat": "^1.1.1",
     "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.11.0",
+    "@eslint/js": "^9.11.1",
     "@repo/typescript-config": "workspace:*",
     "@tanstack/eslint-plugin-router": "^1.58.6",
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/eslint-plugin-jsx-a11y": "^6.9.0",
     "@types/eslint-plugin-tailwindcss": "^3.17.0",
     "@types/eslint__js": "^8.42.3",
-    "eslint": "^9.11.0",
+    "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-turbo": "^2.1.2",
     "eslint-plugin-barrel-files": "^2.1.0",
@@ -36,6 +36,6 @@
     "eslint-plugin-tailwindcss": "^3.17.4",
     "eslint-plugin-unicorn": "^55.0.0",
     "globals": "^15.9.0",
-    "typescript-eslint": "^8.6.0"
+    "typescript-eslint": "^8.7.0"
   }
 }
