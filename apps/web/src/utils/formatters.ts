@@ -14,7 +14,8 @@ function qualifiedLngFor(lng: string): string {
     }
     // Use USA as the default formatting
     // region for English.
-    case 'en': {
+    case 'en':
+    case 'en-UI': {
       return 'en-US';
     }
     default: {

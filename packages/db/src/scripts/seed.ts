@@ -29,7 +29,7 @@ async function seed() {
       lastName: adminUser.lastName,
       name: `${adminUser.firstName} ${adminUser.lastName}`,
       hashedPassword: await new LegacyScrypt().hash(adminUser.password),
-      language: 'en',
+      language: config.defaultLanguage,
       role: 'ADMIN',
     },
   ] satisfies Users;

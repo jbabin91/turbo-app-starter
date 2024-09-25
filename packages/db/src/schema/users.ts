@@ -26,7 +26,7 @@ export const users = pgTable(
     hashedPassword: text('hashed_password').notNull(),
     language: text('language', { enum: supportedLanguagesEnum })
       .notNull()
-      .default('en'),
+      .default(config.defaultLanguage),
     role: text('role', { enum: roleEnum }).notNull().default('USER'),
     lastSeenAt: timestamp('last_seen_at', {
       mode: 'string',

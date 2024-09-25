@@ -11,10 +11,10 @@ export const config = {
   frontendUrl: 'http://localhost:5173',
 
   // Languages
-  defaultLanguage: 'en' as const,
-  supportedLanguages: ['en', 'ar', 'nl'] as const,
+  defaultLanguage: 'en-US' as const,
+  supportedLanguages: ['en-US', 'en', 'ar', 'nl'] as const,
   languages: {
-    en: 'English',
+    'en-US': 'English',
     ar: 'Arabic',
     nl: 'Nederlands',
   },

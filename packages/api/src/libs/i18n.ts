@@ -18,9 +18,10 @@ const initOptions: InitOptions = {
   resources: {
     ar: { backend: arBackend, common: arCommon },
     en: { backend: enBackend, common: enCommon },
+    'en-US': { backend: enBackend, common: enCommon },
     nl: { backend: nlBackend, common: nlCommon },
   },
-  supportedLngs: Object.keys(config.languages),
+  supportedLngs: config.supportedLanguages,
 } satisfies InitOptions;
 
 // Init i18n instance
