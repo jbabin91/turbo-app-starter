@@ -14,12 +14,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hono/zod-openapi": "^0.16.0",
+    "@hono/zod-openapi": "^0.16.2",
     "@repo/auth": "workspace:*",
     "@repo/core": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/locales": "workspace:*",
-    "@scalar/hono-api-reference": "^0.5.148",
+    "@scalar/hono-api-reference": "^0.5.149",
     "drizzle-orm": "^0.33.0",
     "hono": "^4.6.3",
     "hono-rate-limiter": "^0.4.0",
