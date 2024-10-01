@@ -1,6 +1,7 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
-import { Env } from '../types';
-import { Schema } from 'hono';
+import { type Schema } from 'hono';
+
+import { type Env } from '../types';
 
 export default class CustomHono<
   E extends Env = Env,

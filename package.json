@@ -20,7 +20,7 @@
     "lint:fix": "eslint . --fix && turbo lint --continue -- --fix --cache --cache-location node_modules/.cache/eslint/.eslintcache",
     "lint:ws": "sherif",
     "prepare": "husky",
-    "preview": "pnpm with-env turbo preview",
+    "preview": "NODE_ENV=production pnpm with-env turbo preview",
     "storybook": "turbo storybook",
     "typecheck": "turbo typecheck",
     "with-env": "dotenv -e .env --"

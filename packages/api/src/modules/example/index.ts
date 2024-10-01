@@ -1,5 +1,5 @@
-import exampleRoutesConfig from './routes';
 import CustomHono from '../../libs/custom-hono';
+import exampleRoutesConfig from './routes';
 
 const app = new CustomHono();
 

@@ -11,16 +11,22 @@ export default [
     },
   },
   {
-    files: ['./src/schema/**/*.ts', './src/scripts/**/*.ts'],
+    files: ['**/schema/**/*.ts', '**/scripts/**/*.ts'],
     rules: {
       'sort-keys-fix/sort-keys-fix': 'off',
     },
   },
   {
-    files: ['./src/scripts/**/*.ts'],
+    files: ['**/scripts/**/*.ts'],
     rules: {
       'unicorn/no-process-exit': 'off',
       'unicorn/prefer-top-level-await': 'off',
+    },
+  },
+  {
+    rules: {
+      'barrel-files/avoid-barrel-files': 'off',
+      'barrel-files/avoid-namespace-import': 'off',
     },
   },
 ];

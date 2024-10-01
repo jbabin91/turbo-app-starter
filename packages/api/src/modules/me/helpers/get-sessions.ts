@@ -1,5 +1,5 @@
-import { Context } from 'vm';
 import { lucia } from '@repo/auth';
+import { type Context } from 'hono';
 
 export async function getPreparedSessions(userId: string, c: Context) {
   const sessions = await lucia.getUserSessions(userId);

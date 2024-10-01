@@ -1,11 +1,11 @@
+import CustomHono from './libs/custom-hono';
+import defaultHook from './libs/default-hook';
 import { docs } from './libs/docs';
+import { errorResponse } from './libs/errors';
 import middlewares from './middlewares';
 import authRoutes from './modules/auth';
 import exampleRoutes from './modules/example';
-import CustomHono from './libs/custom-hono';
 import meRoutes from './modules/me';
-import defaultHook from './libs/default-hook';
-import { errorResponse } from './libs/errors';
 
 const app = new CustomHono({
   defaultHook,

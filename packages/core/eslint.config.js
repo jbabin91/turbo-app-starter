@@ -11,7 +11,7 @@ export default [
     },
   },
   {
-    files: ['./src/configs/**/*.ts'],
+    files: ['**/configs/**/*.ts'],
     rules: {
       'sort-keys-fix/sort-keys-fix': 'off',
     },

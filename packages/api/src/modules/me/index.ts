@@ -1,14 +1,15 @@
-import meRoutesConfig from './routes';
-import { transformDatabaseUser } from '../users/helpers/transform-database-user';
-import { getPreparedSessions } from './helpers/get-sessions';
-import CustomHono from '../../libs/custom-hono';
+import { lucia } from '@repo/auth';
 import { db, passkeys, users } from '@repo/db';
 import { eq } from 'drizzle-orm';
+
+import { removeSessionCookie } from '../../libs/cookies';
+import CustomHono from '../../libs/custom-hono';
 import { createError, errorResponse } from '../../libs/errors';
 import { logEvent } from '../../middlewares';
-import { lucia } from '@repo/auth';
-import { ErrorType } from '../../types';
-import { removeSessionCookie } from '../../libs/cookies';
+import { type ErrorType } from '../../types';
+import { transformDatabaseUser } from '../users/helpers/transform-database-user';
+import { getPreparedSessions } from './helpers/get-sessions';
+import meRoutesConfig from './routes';
 
 const app = new CustomHono();
 
@@ -38,7 +39,7 @@ const meRoutes = app
         data: {
           ...transformDatabaseUser(user),
           oauth: [],
-          passkey: !!passkey.length,
+          passkey: passkey.length > 0,
           sessions: await getPreparedSessions(user.id, c),
         },
       },
@@ -90,7 +91,7 @@ const meRoutes = app
         data: {
           ...transformDatabaseUser(updatedUser),
           oauth: [],
-          passkey: !!passkey.length,
+          passkey: passkey.length > 0,
         },
       },
       200,
@@ -116,7 +117,7 @@ const meRoutes = app
             removeSessionCookie(c);
           }
           await lucia.invalidateSession(id);
-        } catch (error) {
+        } catch {
           errors.push(
             createError(c, 404, 'not_found', 'warn', { session: id }),
           );

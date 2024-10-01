@@ -4,12 +4,7 @@
   "compilerOptions": {
     "strict": true,
     "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "allowUnusedLabels": false,
-    "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitOverride": true,
-    "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

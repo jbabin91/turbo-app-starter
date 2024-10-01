@@ -1,21 +1,21 @@
 import { Icons, useIsCollapsed } from '@repo/ui';
 import { Outlet } from '@tanstack/react-router';
 
-import { SideLink } from './nav';
+import { type SideLink } from './nav';
 import { Sidebar } from './sidebar';
 
 const sideLinks = [
   {
-    to: '/dashboard',
     icon: <Icons.LayoutDashboard />,
     label: '',
     title: 'Dashboard',
+    to: '/dashboard',
   },
   {
-    to: '/',
     icon: <Icons.ListTodo />,
     label: '3',
     title: 'Tasks',
+    to: '/',
   },
 ] as SideLink[];
 

@@ -1,5 +1,5 @@
-import { z } from 'zod';
 import { userSchema } from '@repo/db';
+import { z } from 'zod';
 
 export const signUpInfo = z.object({
   oauth: z.array(z.enum(['github', 'google', 'microsoft'])),

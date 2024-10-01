@@ -1,9 +1,9 @@
 import { config } from '@repo/core';
+import { Button, cn, Icons, Layout } from '@repo/ui';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Nav, type SideLink } from './nav';
-import { Button, cn, Icons, Layout } from '@repo/ui';
 
 export type SidebarProps = {
   isCollapsed: boolean;
@@ -32,7 +32,7 @@ export function Sidebar({
   return (
     <aside
       className={cn(
-        `fixed left-0 right-0 top-0 z-50 w-full border-r-2 border-r-muted transition-[width] md:bottom-0 md:right-auto md:h-svh ${isCollapsed ? 'md:w-14' : 'md:w-64'}`,
+        `border-r-muted fixed left-0 right-0 top-0 z-50 w-full border-r-2 transition-[width] md:bottom-0 md:right-auto md:h-svh ${isCollapsed ? 'md:w-14' : 'md:w-64'}`,
         className,
       )}
     >

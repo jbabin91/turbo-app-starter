@@ -1,11 +1,11 @@
 import { lucia } from '@repo/auth';
 import { config } from '@repo/core';
-import { db, users, type UserModel } from '@repo/db';
+import { db, type UserModel, users } from '@repo/db';
+import { eq } from 'drizzle-orm';
 import { type Context } from 'hono';
 import { setCookie as baseSetCookie } from 'hono/cookie';
 
 import { logEvent } from '../middlewares';
-import { eq } from 'drizzle-orm';
 
 const isProduction = config.mode === 'production';
 

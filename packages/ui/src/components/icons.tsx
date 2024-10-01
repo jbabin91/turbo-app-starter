@@ -83,7 +83,7 @@ export const Icons = {
   Loader: LoaderCircleIcon,
   Logo: ({ className, ...props }: IconProps) => (
     <svg
-      className={cn('transition-all size-8', className)}
+      className={cn('size-8 transition-all', className)}
       viewBox="0 0 256 256"
       xmlns="http://www.w3.org/2000/svg"
       {...props}

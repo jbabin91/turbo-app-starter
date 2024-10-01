@@ -3,8 +3,8 @@ import { cors } from 'hono/cors';
 import { csrf } from 'hono/csrf';
 import { secureHeaders } from 'hono/secure-headers';
 
-import { logEvent, logger } from './logger';
 import CustomHono from '../libs/custom-hono';
+import { logEvent, logger } from './logger';
 
 const app = new CustomHono();
 

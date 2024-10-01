@@ -1,14 +1,15 @@
 import '../src/styles/globals.css';
-import { type Preview } from '@storybook/react';
+
 import { withThemeByClassName } from '@storybook/addon-themes';
+import { type Preview } from '@storybook/react';
 
 export const decorators = [
   withThemeByClassName({
-    themes: {
-      light: 'light',
-      dark: 'dark',
-    },
     defaultTheme: 'light',
+    themes: {
+      dark: 'dark',
+      light: 'light',
+    },
   }),
 ];
 
@@ -17,7 +18,7 @@ const preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i,
+        date: /date$/i,
       },
     },
   },

@@ -1,17 +1,18 @@
 // Schemas
 export type {
+  InsertPasskeyModel,
   InsertSessionModel,
   InsertTodoModel,
   InsertUserModel,
+  PasskeyModel,
   SessionModel,
   TodoModel,
   UserModel,
-  InsertPasskeyModel,
-  PasskeyModel,
 } from './schema';
 export {
   insertTodoSchema,
   insertUserSchema,
+  passkeys,
   sessions,
   todos,
   todoSchema,
@@ -19,7 +20,6 @@ export {
   updateUserSchema,
   users,
   userSchema,
-  passkeys,
 } from './schema';
 
 // Libs

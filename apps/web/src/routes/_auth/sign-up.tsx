@@ -1,12 +1,12 @@
 import {
+  Button,
   Card,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-  Label,
   Input,
-  Button,
+  Label,
 } from '@repo/ui';
 import { createFileRoute, Link } from '@tanstack/react-router';
 

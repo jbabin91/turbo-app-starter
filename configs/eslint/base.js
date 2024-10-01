@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import pluginReact from '@eslint-react/eslint-plugin';
 import pluginRouter from '@tanstack/eslint-plugin-router';
 import eslintConfigPrettier from 'eslint-config-prettier';
 // @ts-ignore
@@ -7,8 +8,7 @@ import depend from 'eslint-plugin-depend';
 import importX from 'eslint-plugin-import-x';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 // @ts-ignore
-// eslint-disable-next-line depend/ban-dependencies
-import react from 'eslint-plugin-react';
+// import react from 'eslint-plugin-react';
 // @ts-ignore
 import reactHooks from 'eslint-plugin-react-hooks';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
@@ -22,7 +22,14 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['node_modules', '**/dist', '.turbo', '*.gen.ts'] },
+  {
+    ignores: [
+      '**/node_modules/**',
+      '**/.turbo/**',
+      '**/dist/**',
+      '**/*.gen.ts',
+    ],
+  },
   depend.configs['flat/recommended'],
   ...pluginRouter.configs['flat/recommended'],
   {
@@ -81,7 +88,7 @@ export default tseslint.config(
       ...tseslint.configs.recommendedTypeChecked,
       ...tseslint.configs.stylisticTypeChecked,
     ],
-    files: ['*.{ts,tsx}'],
+    files: ['**/*.ts?(x)'],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
@@ -98,12 +105,14 @@ export default tseslint.config(
         'error',
         { fixStyle: 'inline-type-imports', prefer: 'type-imports' },
       ],
+      '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'off',
       '@typescript-eslint/no-misused-promises': [
         'error',
         { checksVoidReturn: { attributes: false } },
       ],
+      '@typescript-eslint/no-redundant-type-constituents': 'off',
       '@typescript-eslint/no-unsafe-argument': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
       '@typescript-eslint/no-unsafe-call': 'off',
@@ -118,32 +127,33 @@ export default tseslint.config(
     },
   },
   {
-    files: ['*.{jsx,tsx}'],
+    files: ['**/*.js?(x)', '**/*.ts?(x)'],
+    ...pluginReact.configs['recommended-type-checked'],
     plugins: {
       'jsx-a11y': jsxA11y,
-      react,
+      // react,
       'react-hooks': reactHooks,
       tailwindcss,
     },
     rules: {
-      ...react.configs.recommended.rules,
-      ...react.configs['jsx-runtime'].rules,
+      // ...react.configs.recommended.rules,
+      // ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.flatConfigs.recommended.rules,
       ...tailwindcss.configs.recommended.rules,
-      'react/jsx-sort-props': [
-        'error',
-        {
-          callbacksLast: true,
-          ignoreCase: true,
-          noSortAlphabetically: false,
-          reservedFirst: true,
-          shorthandFirst: true,
-          shorthandLast: false,
-        },
-      ],
-      'react/no-unknown-property': 'off',
-      'react/prop-types': 'off',
+      // 'react/jsx-sort-props': [
+      //   'error',
+      //   {
+      //     callbacksLast: true,
+      //     ignoreCase: true,
+      //     noSortAlphabetically: false,
+      //     reservedFirst: true,
+      //     shorthandFirst: true,
+      //     shorthandLast: false,
+      //   },
+      // ],
+      // 'react/no-unknown-property': 'off',
+      // 'react/prop-types': 'off',
       'tailwindcss/no-custom-classname': 'off',
     },
   },

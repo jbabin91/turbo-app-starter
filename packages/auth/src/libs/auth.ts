@@ -7,26 +7,31 @@ const adapter = new DrizzlePostgreSQLAdapter(db, sessions, users);
 const isProduction = config.mode === 'production';
 
 const sessionCookieOptions = {
-  name: 'turbo-app-starter-session',
-  expires: true,
   attributes: {
     sameSite: isProduction ? 'strict' : 'lax',
     secure: isProduction,
   },
+  expires: true,
+  name: 'turbo-app-starter-session',
 } satisfies SessionCookieOptions;
 
 export const lucia = new Lucia(adapter, {
-  sessionExpiresIn: new TimeSpan(4, 'w'), // Set session expiration to 4 weeks
-  sessionCookie: sessionCookieOptions,
-  getUserAttributes({ hashedPassword, ...databaseUserAttributes }) {
-    return databaseUserAttributes;
-  },
   getSessionAttributes(databaseSessionAttributes) {
     return {
-      type: databaseSessionAttributes.type,
       adminUserId: databaseSessionAttributes.adminUserId,
+      type: databaseSessionAttributes.type,
     };
   },
+
+  getUserAttributes({
+    hashedPassword: _hashedPassword,
+    ...databaseUserAttributes
+  }) {
+    return databaseUserAttributes;
+  },
+  // Set session expiration to 4 weeks
+  sessionCookie: sessionCookieOptions,
+  sessionExpiresIn: new TimeSpan(4, 'w'),
 });
 
 declare module 'lucia' {

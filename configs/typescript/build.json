@@ -1,11 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Build",
+  "extends": "./base.json",
   "compilerOptions": {
     "tsBuildInfoFile": "${configDir}/node_modules/.cache/typescript/tsconfig.build.tsbuildinfo",
     "outDir": "${configDir}/dist",
     "rootDir": "${configDir}/src",
-    "noEmit": false
+    "noEmit": false,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
   },
   "include": [
     "${configDir}/src/**/*.ts",

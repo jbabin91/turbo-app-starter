@@ -1,15 +1,15 @@
+import { lucia } from '@repo/auth';
 import { config } from '@repo/core';
 import { db, users } from '@repo/db';
 import { eq } from 'drizzle-orm';
 import { LegacyScrypt } from 'lucia';
 
 import { removeSessionCookie, setSessionCookie } from '../../libs/cookies';
+import CustomHono from '../../libs/custom-hono';
 import { errorResponse } from '../../libs/errors';
+import { logEvent } from '../../middlewares';
 import { transformDatabaseUser } from '../users/helpers/transform-database-user';
 import authRoutesConfig from './routes';
-import { lucia } from '@repo/auth';
-import { logEvent } from '../../middlewares';
-import CustomHono from '../../libs/custom-hono';
 
 const app = new CustomHono();
 

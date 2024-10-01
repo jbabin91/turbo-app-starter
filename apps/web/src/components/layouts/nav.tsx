@@ -17,8 +17,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@repo/ui';
+import { Link, type LinkProps } from '@tanstack/react-router';
+
 import { useCheckActiveNav } from '@/hooks';
-import { Link, LinkProps } from '@tanstack/react-router';
 
 export type NavLink = {
   title: string;
@@ -46,7 +47,7 @@ export function Nav({ links, isCollapsed, className, closeNav }: NavProps) {
   return (
     <div
       className={cn(
-        'group border-b bg-background py-2 transition-[max-height,padding] duration-500 data-[collapsed=true]:py-2 md:border-none',
+        'bg-background group border-b py-2 transition-[max-height,padding] duration-500 data-[collapsed=true]:py-2 md:border-none',
         className,
       )}
       data-collapsed={isCollapsed}

@@ -13,6 +13,7 @@ export default [
   {
     rules: {
       'sort-keys-fix/sort-keys-fix': 'off',
+      'barrel-files/avoid-barrel-files': 'off',
     },
   },
 ];

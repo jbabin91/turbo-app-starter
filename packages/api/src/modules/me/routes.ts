@@ -1,3 +1,6 @@
+import { updateUserSchema, userSchema } from '@repo/db';
+
+import { errorResponses } from '../../libs/common-responses';
 import {
   idsQuerySchema,
   successWithDataSchema,
@@ -6,9 +9,7 @@ import {
 } from '../../libs/common-schemas';
 import { createRouteConfig } from '../../libs/route-config';
 import { isAuthenticated } from '../../middlewares';
-import { errorResponses } from '../../libs/common-responses';
 import { meUserSchema, signUpInfo } from './schema';
-import { updateUserSchema, userSchema } from '@repo/db';
 
 class MeRoutesConfig {
   public getSelf = createRouteConfig({
