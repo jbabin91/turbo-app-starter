@@ -9,7 +9,7 @@ function PublicLayout() {
   return (
     <>
       <header className="flex justify-between gap-2 border-b border-gray-400 p-2">
-        <nav className="flex items-center gap-2 p-2">
+        <nav className="flex items-center gap-2">
           <Icons.Logo />
           <Link className="[&.active]:font-bold" to="/">
             Home
@@ -21,8 +21,8 @@ function PublicLayout() {
             Dashboard
           </Link>
         </nav>
-        <div className="flex gap-2">
-          <div className="flex items-center gap-2 p-2">
+        <div className="flex items-center gap-2">
+          <div className="flex gap-2">
             <Link to="/sign-in">Sign In</Link>
             <Link to="/sign-up">Sign Up</Link>
           </div>
