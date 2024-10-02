@@ -31,7 +31,6 @@
     }
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
     "@commitlint/config-conventional": "^19.5.0",
     "@repo/eslint-config": "workspace:*",
     "@types/node": "^22.7.4",
@@ -48,6 +47,6 @@
   },
   "packageManager": "pnpm@9.11.0",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.17.0"
   }
 }
