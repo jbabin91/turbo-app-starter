@@ -14,17 +14,17 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hono/zod-openapi": "^0.16.2",
+    "@hono/zod-openapi": "^0.16.4",
     "@repo/auth": "workspace:*",
     "@repo/core": "workspace:*",
     "@repo/db": "workspace:*",
     "@repo/locales": "workspace:*",
-    "@scalar/hono-api-reference": "^0.5.150",
-    "drizzle-orm": "^0.33.0",
+    "@scalar/hono-api-reference": "^0.5.153",
+    "drizzle-orm": "^0.34.1",
     "hono": "^4.6.3",
     "hono-rate-limiter": "^0.4.0",
-    "i18next": "^23.15.1",
-    "lucia": "^3.2.0",
+    "i18next": "^23.15.2",
+    "lucia": "^3.2.1",
     "react-i18next": "^15.0.2",
     "zod": "^3.23.8"
   },
