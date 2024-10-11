@@ -8,7 +8,7 @@ export function NotFound({ children }: { children?: React.ReactNode }) {
         {children ?? <p>The page you are looking for does not exist.</p>}
       </div>
       <div className="flex flex-wrap items-center gap-2">
-        <Button onClick={() => window.history.back()}>Go back</Button>
+        <Button onClick={() => globalThis.history.back()}>Go back</Button>
         <Link to={'/'}>Start Over</Link>
       </div>
     </div>

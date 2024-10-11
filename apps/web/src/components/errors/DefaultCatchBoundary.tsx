@@ -29,7 +29,7 @@ export function DefaultCatchBoundary({ error }: ErrorComponentProps) {
             to="/"
             onClick={(e) => {
               e.preventDefault();
-              window.history.back();
+              globalThis.history.back();
             }}
           >
             Go back
