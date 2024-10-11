@@ -21,7 +21,7 @@
     "@repo/locales": "workspace:*",
     "@scalar/hono-api-reference": "^0.5.153",
     "drizzle-orm": "^0.34.1",
-    "hono": "^4.6.3",
+    "hono": "^4.6.4",
     "hono-rate-limiter": "^0.4.0",
     "i18next": "^23.15.2",
     "lucia": "^3.2.1",
